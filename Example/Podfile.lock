@@ -1,0 +1,16 @@
+PODS:
+  - LYRunloop (0.1.0)
+
+DEPENDENCIES:
+  - LYRunloop (from `../`)
+
+EXTERNAL SOURCES:
+  LYRunloop:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  LYRunloop: 86ca784a00cd1bdfe62a6f70963a4d0454ddefc9
+
+PODFILE CHECKSUM: b6951f29b219701e0ed8112adf94541d2bf063e9
+
+COCOAPODS: 1.7.0.beta.3
