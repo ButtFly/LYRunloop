@@ -75,6 +75,10 @@ static dispatch_queue_t ly_runloop_creation_queue() {
     
     LYRunloopAction *obj = [LYRunloopAction new];
     if (obj != nil) {
+        if (repeat != NSUIntegerMax && ((repeat + startIndex + 1) * interval == 0)) {
+            NSAssert(NO, @"repeat startIndex interval 过大");
+            return nil;
+        }
         obj.name = [name copy];
         obj.action = action;
         obj.startIndex = startIndex;
@@ -99,7 +103,7 @@ static dispatch_queue_t ly_runloop_creation_queue() {
         NSUInteger count = self->_count;
         NSUInteger repeat = self->_repeat;
         NSUInteger interval = self->_interval;
-        if (count >= (repeat + self->_startIndex + 1) * interval) {
+        if (repeat != NSUIntegerMax && (count >= (repeat + self->_startIndex + 1) * interval)) {
             [self ly_stopAction];
             return ;
         }
