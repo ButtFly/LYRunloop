@@ -118,8 +118,8 @@ static dispatch_queue_t ly_runloop_creation_queue() {
         if (self->_action != nil) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 self->_action(self);
+                self->_count += 1;
             });
-            self->_count += 1;
         }
     });
     dispatch_resume(_timer);
